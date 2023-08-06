@@ -1,0 +1,23 @@
+
+.carousel{
+  width:100vw;
+  display:flex;
+  flex-direction: column;
+  overflow:scroll;
+
+}
+
+.carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+@media (min-width: 800px) { 
+  .carousel{
+    flex-direction: row;
+  }
+  
+}
+
+@media (min-width: 1280px) { 
+
+}

@@ -1,0 +1,82 @@
+
+.carouselCard{
+  width:90vw;
+  height:75vh;
+  display:flex;
+  flex-direction: column;
+  background-color: var(--offWhiteBackground);
+  margin:auto;
+  margin-top:40px;
+  border-radius: 10px;
+  min-width:500px;
+  cursor:pointer;
+  position:relative;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 40px 0px;
+  transition:200ms;
+}
+
+.opaque, .border{
+  height:100%;
+  width:100%;
+  position:absolute;
+  Top:0;
+  Left:0;
+  pointer-events: none;
+  border-radius:10px;
+}
+
+.opaque{
+  background-color: var(--offWhiteBackground);
+  opacity: 0.2;
+}
+
+.border{
+  border: 4px solid var(--red)
+}
+
+.titleContainer{
+  padding:25px;
+  padding-bottom:0;
+}
+
+.title{
+  font-size:2em;
+  font-weight:normal;
+  font-style: normal;
+}
+
+.subTitle{
+  font-style: normal;
+  font-weight:normal;
+}
+
+.imageContainer{
+  max-width:100%;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+}
+
+.image{
+  width:100%;
+  border-top-left-radius: 10px; 
+  border-top-right-radius: 10px;
+}
+
+.metadataContainer{
+  padding:25px;
+  width:100%;
+  padding-top:20px;
+  position:absolute;
+  Bottom:0;
+}
+
+@media (min-width: 800px) { 
+  .carouselCard{
+    width:25vw;
+    height:50vh;
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:0px;
+  }
+  
+}
