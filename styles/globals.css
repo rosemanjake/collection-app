@@ -1,10 +1,76 @@
-html, body {
-  padding: 0px;
-  margin: 0px;
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&family=Libre+Baskerville&display=swap');
+
+#__next {
+  min-height:100vh;
+}
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Josefin Sans', sans-serif;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
+}
+:root {
+  --dark:#343434;
+  --light: #F9EFDA;
+  --red: #F9350B;
+  --darkred: #833424;
+  --darkishred: #a3270b;
+  --pink: #FBDBD0;
+  
+
+  --offWhiteBackground: #F9F1E1;
+  --darkText: #343434;
+
+  --goldRushPrimary: #FFB31F;
+  --goldRushSecondary: #262D46;
+  --shotgunPrimary: #FFFFFF;
+  --shotgunSecondary: #4E1313;
+  --theBearPrimary: #FFDE88;
+  --theBearSecondary: #173A14;
+  --parasocialPrimary: #9BC9FF;
+  --parasocialSecondary: #886A3C;
+  --hypochondriaPrimary: #FF773D;
+  --hypochondriaSecondary: #365F62;
+  --pigeonsPrimary: #E9435C;
+  --pigeonsSecondary: #684678;
+
+  --homeColumn: 66vw;
+  --mainColumn: 95vw;
+}   
+
+@media (min-width: 800px) { 
+  :root {
+    --mainColumn: 80vw;
+  }
 }
 
-h1 {
-  margin:auto;
+@media (min-width: 1280px) { 
+  :root {
+    --mainColumn: 66vw;
+  }
+}
+
+@media (min-width: 1600px) { 
+  :root {
+    --mainColumn: 40vw;
+  }
+}
+
+/* For Webkit browsers like Chrome and Safari */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* For Internet Explorer and Edge */
+body {
+  -ms-overflow-style: none;
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: none;
 }

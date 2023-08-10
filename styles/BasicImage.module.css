@@ -1,0 +1,15 @@
+.imageContainer{
+  width:100%;
+  max-width:800px;
+  padding:20px;
+  border-radius:10px;
+  margin:auto;
+  
+}
+
+.image{
+  width:100%;
+  display:block;
+  border-radius:10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 40px 0px;
+}

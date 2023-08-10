@@ -1,19 +1,26 @@
 
 .carousel{
-  width:100vw;
   display:flex;
   flex-direction: column;
-  overflow:scroll;
-
+  overflow-y:scroll;
+  overflow-x:hidden;
+  margin:auto;
+  padding-top:50px;
+  padding-bottom:50px;
 }
 
 .carousel::-webkit-scrollbar {
     display: none;
-  }
+}
+
+.carouselContainer{
+  height:100%;
+}
 
 @media (min-width: 800px) { 
   .carousel{
     flex-direction: row;
+    overflow:scroll;
   }
   
 }

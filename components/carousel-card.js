@@ -1,7 +1,7 @@
 import styles from '../styles/CarouselCard.module.css';
 import React, { useState, useEffect, useRef } from 'react';
 import { AnimatePresence, motion } from 'framer-motion'
-
+import Link from 'next/link';
 
 export default function CarouselCard(props){
   const [isHovered, setIsHovered] = useState(false);
@@ -16,7 +16,6 @@ export default function CarouselCard(props){
     div.addEventListener('mouseover', handleMouseOver);
     div.addEventListener('mouseout', handleMouseOut);
 
-    // Return a cleanup function that will remove the event listeners when the component is unmounted
     return () => {
       div.removeEventListener('mouseover', handleMouseOver);
       div.removeEventListener('mouseout', handleMouseOut);
@@ -24,12 +23,20 @@ export default function CarouselCard(props){
   }, []);
 
   return(
-    <div className={styles.carouselCard} ref={cardRef}>
+    <motion.div 
+      initial={{ y: "50%", opacity: 0 }}
+      animate={{ y: "0%", opacity: 1 }}
+      transition={{ duration: 0.2, ease: "easeInOut", delay: props.data.id * 0.08 }}
+      className={styles.carouselCard} ref={cardRef}>
+      <Link href={props.data.link}>
       {isHovered &&
-        <>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.2 }}>
         <div className={styles.opaque}/>
         <div className={styles.border}/>
-        </>
+        </motion.div>
       }
       <div className={styles.imageContainer}>
         <img className={styles.image} src={props.data.image}/></div>
@@ -40,7 +47,7 @@ export default function CarouselCard(props){
       <div className={styles.metadataContainer}>
         <div>{props.data.time}</div>
       </div>
-            
-    </div>
+      </Link>
+    </motion.div>
   )
 }

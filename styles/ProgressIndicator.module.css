@@ -1,0 +1,7 @@
+.bar{
+  width:100vw;
+  height:8px;
+  background-color: red;
+  opacity:1;
+  z-index:9999;
+}

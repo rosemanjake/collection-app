@@ -1,98 +1,48 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Carousel from '../components/carousel.js'
+import React, {useState, useEffect} from 'react'
+import ActionButtons from '../components/ActionButtons';
+import Header from '../components/header';
 
 export default function Home() {
+  // State variable to track whether the window is less than 800px wide
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Effect hook to handle window resizing
+  useEffect(() => {
+    // Function to update isMobile state based on window width
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 800);
+    };
+
+    handleResize()
+
+    // Add the event listener to the window
+    window.addEventListener('resize', handleResize);
+
+    // Return a cleanup function to remove the event listener
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
+
   return (
     <>
-    <div className={styles.background}></div>
-    <div className={styles.container}>
-      <Head>
-        <title>By the Fire</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className={styles.background}/>
+    <div className={styles.outerContainer}>
+      <div className={styles.container}>
+        <Head>
+          <title>By the Fire</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main>
-        <div className={styles.titleContainer}>
-          <h1 className={styles.mainTitle}>By the <span style={{color:"var(--red)"}}>Fire</span></h1>
-          <h2 className={styles.subTitle}>A collection of short stories.</h2>
-        </div>
-        <Carousel/>
+        <Header home={true} isMobile={isMobile}/>
         
-      </main>
-
-      <style jsx global>{`
-        @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400&family=Libre+Baskerville&display=swap');
-
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: 'Josefin Sans', sans-serif;
-          y-overflow: hidden;
-        }
-        * {
-          box-sizing: border-box;
-        }
-        :root {
-          --dark:#343434;
-          --light: #F9EFDA;
-          --red: #F9350B;
-          --darkred: #833424;
-          
-
-          --offWhiteBackground: #F9F1E1;
-          --darkText: #343434;
-
-          --goldRushPrimary: #FFB31F;
-          --goldRushSecondary: #262D46;
-          --shotgunPrimary: #FFFFFF;
-          --shotgunSecondary: #4E1313;
-          --theBearPrimary: #FFDE88;
-          --theBearSecondary: #173A14;
-          --parasocialPrimary: #9BC9FF;
-          --parasocialSecondary: #886A3C;
-          --hypochondriaPrimary: #FF773D;
-          --hypochondriaSecondary: #365F62;
-          --pigeonsPrimary: #E9435C;
-          --pigeonsSecondary: #684678;
-        
-          --mainColumn: 95vw;
-        }   
-        
-        @media (min-width: 800px) { 
-          :root {
-            --mainColumn: 80vw;
-          }
-        }
-
-        @media (min-width: 1280px) { 
-          :root {
-            --mainColumn: 66vw;
-          }
-        }
-
-        ::-webkit-scrollbar {
-          width: 10px;
-        }
-        
-        /* Track */
-        ::-webkit-scrollbar-track {
-          background: #f0f0f0; 
-        }
-         
-        /* Handle */
-        ::-webkit-scrollbar-thumb {
-          background: #cdcdcd; 
-        }
-        
-        /* Handle on hover */
-        ::-webkit-scrollbar-thumb:hover {
-        background: #a6a6a6; 
-        }
-      `}</style>
+        <Carousel isMobile={isMobile}/>
+        <ActionButtons/>
+      </div>
     </div>
-
     </>
   )
 }

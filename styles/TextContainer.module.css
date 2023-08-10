@@ -1,0 +1,10 @@
+.container{
+
+}
+
+.text{
+  margin:auto;
+  margin-top:1em;
+  max-width: 675px;
+  font-family: 'Libre Baskerville', serif;
+}

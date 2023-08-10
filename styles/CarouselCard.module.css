@@ -8,11 +8,18 @@
   margin:auto;
   margin-top:40px;
   border-radius: 10px;
-  min-width:500px;
   cursor:pointer;
   position:relative;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 40px 0px;
   transition:200ms;
+  max-width:90vw;
+}
+
+.carouselCard a {
+  color: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  text-decoration: inherit;
 }
 
 .opaque, .border{
@@ -77,6 +84,7 @@
     margin-left:20px;
     margin-right:20px;
     margin-top:0px;
+    min-width:500px;
   }
   
 }
