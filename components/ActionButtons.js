@@ -6,7 +6,7 @@ export default function ActionButtons(props){
   return(
     <div className={styles.container}>
       <ActionButton text={"Purchase e-book"}/>
-      <ShareButtons url={props.url} title={"By the Fire"} fullWidth={false}/>
+      <ShareButtons url={props.url} title={"By the Fire"} fullWidth={false} light={props.light}/>
     </div>
   )
 }

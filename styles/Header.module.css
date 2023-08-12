@@ -148,3 +148,18 @@
   margin:auto;
   margin-top:.5em;
 }
+
+.innerIconContainer{
+  height:100%;
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconContainer{
+  display:flex;
+  flex-direction: row;
+  width:100px;
+  justify-content: space-between;
+  height:100%;
+}

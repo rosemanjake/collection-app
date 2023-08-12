@@ -1,4 +1,4 @@
-.outerContainer{
+.outerContainer, .darkOuterContainer{
   height:100%;
   width:100%;
   background:var(--offWhiteBackground);
@@ -6,7 +6,7 @@
   display:block;
 }
 
-.container{
+.container, .darkContainer{
   height:100%;
   min-height:100vh;
   max-width: var(--mainColumn);
@@ -17,5 +17,9 @@
   padding-bottom:75px;
   position: relative;
   display:block;
+}
 
+.darkOuterContainer, .darkContainer{
+  background:var(--dark);
+  color:var(--light)
 }

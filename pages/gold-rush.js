@@ -18,18 +18,20 @@ export default function GoldRush(props){
   const url = 'https://example.com/my-page';
   const title = 'Check out this cool page!';
 
+  const [darkMode, setDarkMode] = useState(false)
+  
   return(
     <>
-    <Header/>
+    <Header setDarkMode={setDarkMode} darkMode={darkMode}/>
     <ProgressIndicator/>
-    <Story>
-      <StoryTitle title={"Gold Rush"}/>
+    <Story darkMode={darkMode}>
+      <StoryTitle title={"Gold Rush"} darkMode={darkMode}/>
       <TextContainer text={text} containerIndex={1}/>
       <BasicImage image={"/images/field.png"}/>
       <TextContainer text={text2} containerIndex={2}/>
       <BasicImage image={"/images/fire.png"}/>
       <TextContainer text={text3} containerIndex={3}/>
-      <ShareButtons url={url} title={title} fullWidth={true}/>
+      <ShareButtons url={url} title={title} fullWidth={true} light={false}/>
     </Story>
     <Footer/>
     </>

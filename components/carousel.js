@@ -2,6 +2,7 @@ import React, { useRef, useEffect, useState } from 'react';
 import CarouselCard from './carousel-card';
 import styles from '../styles/Carousel.module.css';
 import ScrollOnHover from './ScrollOnHover';
+import { AnimatePresence } from 'framer-motion';
 
 export default function Carousel(props){
   const carouselRef = useRef(null);
@@ -65,23 +66,18 @@ export default function Carousel(props){
     { id: 6, image: "/images/titles/pigeons.png", title: 'Pigeons', subtitle: "A horde of pigeons settles on a London street.", time:"5 minute read", link: "/pigeons"},
   ];
 
-  return(
+  return (
     <>
-      {scrollPosition < 100 &&
-        <ScrollOnHover targetRef={carouselRef} reverse={false}/>
-      }
-      {scrollPosition > 0 &&
-        <ScrollOnHover targetRef={carouselRef} reverse={true}/>
-      }
+      <ScrollOnHover targetRef={carouselRef} reverse={false} visible={scrollPosition < 100} />
+      <ScrollOnHover targetRef={carouselRef} reverse={true} visible={scrollPosition > 0} />
       <div className={styles.carouselContainer}>
         <div className={styles.carousel} ref={carouselRef}>
-        {cardData.map((item) => (
-            <CarouselCard key={item.id} data={item}/>
-        ))}
-        <b style={{position:"fixed", bottom: 0}}>{scrollPosition}</b>
+          {cardData.map((item) => (
+            <CarouselCard key={item.id} data={item} />
+          ))}
+          <b style={{ position: "fixed", bottom: 0 }}>{scrollPosition}</b>
         </div>
-      </div>  
+      </div>
     </>
-    
-  )
+  );
 }

@@ -40,7 +40,7 @@ export default function Home() {
 
         <Header home={true} isMobile={isMobile}/>
         <Carousel isMobile={isMobile}/>
-        <ActionButtons/>
+        <ActionButtons url={"foobar.com"} light={true}/>
       </div>
     </div>
     <HomeFooter/>

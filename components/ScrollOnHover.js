@@ -1,7 +1,8 @@
+import React, { useRef } from 'react';
+import { motion } from 'framer-motion';
 import styles from '../styles/ScrollOnHover.module.css';
-import React, { useRef, useEffect, useState } from 'react';
 
-const ScrollOnHover = ({ targetRef, scrollAmount = 20, reverse = false }) => {
+const ScrollOnHover = ({ targetRef, scrollAmount = 20, reverse = false, visible }) => {
   const scrollInterval = useRef(null);
   const easingFactor = useRef(0);
 
@@ -11,23 +12,23 @@ const ScrollOnHover = ({ targetRef, scrollAmount = 20, reverse = false }) => {
     scrollInterval.current = setInterval(() => {
       if (targetRef.current) {
         const isAtStart = targetRef.current.scrollLeft <= 0;
-        const isAtEnd = targetRef.current.scrollLeft >= targetRef.current.scrollWidth - targetRef.current.clientWidth - 1; // Allow some tolerance        
+        const isAtEnd = targetRef.current.scrollLeft >= targetRef.current.scrollWidth - targetRef.current.clientWidth - 1;
         
         if ((reverse && isAtStart) || (!reverse && isAtEnd)) {
           stopScrolling();
           return; // Stop if at the boundary
         }
   
-        easingFactor.current = Math.min(1, easingFactor.current + 0.05); // Increase easing factor up to 1
+        easingFactor.current = Math.min(1, easingFactor.current + 0.05);
         const isHorizontal = window.innerWidth >= 800;
-        const easeInQuad = (t) => t * t; // Quadratic easing function
-        const delta = easeInQuad(easingFactor.current) * scrollAmount * (reverse ? -1 : 1); // Consider reverse prop
+        const easeInQuad = (t) => t * t;
+        const delta = easeInQuad(easingFactor.current) * scrollAmount * (reverse ? -1 : 1);
         const x = isHorizontal ? delta : 0;
         const y = isHorizontal ? 0 : delta;
         targetRef.current.scrollBy(x, y);
       }
-    }, 20); // Faster interval for smoother scrolling
-  };  
+    }, 20);
+  };
 
   const stopScrolling = () => {
     if (scrollInterval.current) {
@@ -38,13 +39,18 @@ const ScrollOnHover = ({ targetRef, scrollAmount = 20, reverse = false }) => {
   };
 
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={visible ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }}
+      transition={{ duration: 0.2, ease: 'easeOut' }}
       onMouseOver={startScrolling}
       onMouseLeave={stopScrolling}
+      onTouchStart={startScrolling} // Start scrolling on touch start
+      onTouchEnd={stopScrolling}   // Stop scrolling on touch end
       className={`${styles.container} ${reverse ? styles.reverse : styles.forwards}`}
     >
-      {reverse ? "<<" : ">>"}
-    </div>
+      {reverse ? "<" : ">"}
+    </motion.div>
   );
 };
 

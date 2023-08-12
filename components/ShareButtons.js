@@ -1,46 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa';
+import styles from '../styles/ShareButtons.module.css';
 
-const ShareButtons = ({ url, title, fullWidth = false, definedWidth = '250px' }) => {
-  // Construct the Twitter URL
+const ShareButtons = ({ url, title, fullWidth = false, light = false }) => {
   const twitterUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-
-  // Construct the Facebook URL
   const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-
-  // Instagram does not provide a direct sharing URL, but you can link to your profile or replace this with another platform
   const instagramUrl = `https://www.instagram.com`;
 
-  // Set the outer container style
-  const containerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    marginTop: '3em'
-  };
-
-  // Set the inner div style
-  const innerStyle = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    width: fullWidth ? '100%' : definedWidth
-  };
-
   return (
-    <div style={containerStyle}>
-      <div style={innerStyle}>
-        <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
-          <FaTwitter size="24" color="#343434" />
-        </a>
-        <a href={instagramUrl} target="_blank" rel="noopener noreferrer">
-          <FaInstagram size="24" color="#343434" />
-        </a>
-        <a href={facebookUrl} target="_blank" rel="noopener noreferrer">
-          <FaFacebookF size="22" color="#343434" />
-        </a>
+    <div className={fullWidth ? styles.container : styles.narrowContainer}>
+      <div className={styles.inner}>
+        <ShareIcon IconComponent={FaTwitter} size="20" url={twitterUrl} light={light} />
+        <ShareIcon IconComponent={FaInstagram} size="20" url={instagramUrl} light={light}/>
+        <ShareIcon IconComponent={FaFacebookF} size="20" url={facebookUrl} light={light}/>
       </div>
     </div>
   );
 };
+
+const ShareIcon = ({ IconComponent, size, url, light }) => {
+  const [color, setColor] = useState(light ? "#F9EFDA" : "#343434" );
+
+  const handleMouseEnter = () => {
+    setColor('#F9350B');
+  };
+
+  const handleMouseLeave = () => {
+    setColor(light ? "#F9EFDA" : "#343434");
+  };
+
+  return (
+    <a href={url} target="_blank" rel="noopener noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      <IconComponent size={size} color={color} />
+    </a>
+  );
+};
+
 
 export default ShareButtons;

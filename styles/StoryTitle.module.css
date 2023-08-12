@@ -1,8 +1,14 @@
-.title{
+.title, .darkTitle{
   font-size:4em;
   margin:auto;
   width:100%;
   text-align:center;
+  margin-top:2em;
+  margin-bottom:1em;
+}
+
+.darkTitle{
+  color:var(--light);
 }
 
 .line{

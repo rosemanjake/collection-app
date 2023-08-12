@@ -15,20 +15,40 @@ export default function Header(props) {
             : <Title/>
           }
           <AnimatePresence>
-            {!displaySidebar &&
-              <MenuDot setDisplaySidebar={setDisplaySidebar}/>
-              //<Hamburger setDisplaySidebar={setDisplaySidebar}/>
-            }
+          {!displaySidebar &&
+            <motion.div 
+            className={styles.iconContainer}
+            initial={{ y:'10%', opacity: 0 }}
+            animate={{ y:'0%', opacity: 1 }}
+            exit={{ y:'10%', opacity: 0 }}
+            transition={{
+              duration: 0.1,
+              ease: 'easeInOut'
+            }}
+            >
+            <div className={styles.innerIconContainer}>
+              <img onClick={() => {props.setShowShare(!props.showShare)}} src={"/images/shareicon.svg"}/>
+            </div>
+            <div className={styles.innerIconContainer}>
+              <img onClick={() => {props.setDarkMode(!props.darkMode)}} src={"/images/darkmode.svg"}/>
+            </div>
+            <div className={styles.innerIconContainer}>
+              <img onClick={() => {setDisplaySidebar(!displaySidebar)}} src={"/images/hamburger.svg"}/>
+            </div>
+            </motion.div>
+          }
           </AnimatePresence>
           <AnimatePresence>
-            {displaySidebar &&
-              <Sidebar setDisplaySidebar={setDisplaySidebar}/>
-            }
-          </AnimatePresence>
+              {displaySidebar &&
+                <Sidebar setDisplaySidebar={setDisplaySidebar}/>
+              }
+            </AnimatePresence>
         </div>
       </div>
   )
 }
+
+//<MenuDot setDisplaySidebar={setDisplaySidebar}/>
 
 function HomeTitle(){
   return(
