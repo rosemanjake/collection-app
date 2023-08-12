@@ -13,7 +13,7 @@ export default function Footer(){
             <Link href={"/about"}>Contact</Link>
             <Link href={"/about"}>E-book</Link>
           </div>
-          <div>© Jake Roseman, 2023.</div>
+          <div>© Jake Roseman, 2023</div>
         </div>
       </div>
     </div>

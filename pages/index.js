@@ -4,6 +4,7 @@ import Carousel from '../components/carousel.js'
 import React, {useState, useEffect} from 'react'
 import ActionButtons from '../components/ActionButtons';
 import Header from '../components/header';
+import ScrollOnHover from '../components/ScrollOnHover';
 
 export default function Home() {
   // State variable to track whether the window is less than 800px wide
@@ -38,11 +39,17 @@ export default function Home() {
         </Head>
 
         <Header home={true} isMobile={isMobile}/>
-        
         <Carousel isMobile={isMobile}/>
         <ActionButtons/>
       </div>
     </div>
+    <HomeFooter/>
     </>
+  )
+}
+
+function HomeFooter(){
+  return(
+    <div className={styles.footer}>© Jake Roseman, 2023</div>
   )
 }

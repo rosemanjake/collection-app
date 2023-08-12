@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa';
 
-const ShareButtons = ({ url, title }) => {
+const ShareButtons = ({ url, title, fullWidth = false, definedWidth = '250px' }) => {
   // Construct the Twitter URL
   const twitterUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
 
@@ -11,9 +11,24 @@ const ShareButtons = ({ url, title }) => {
   // Instagram does not provide a direct sharing URL, but you can link to your profile or replace this with another platform
   const instagramUrl = `https://www.instagram.com`;
 
+  // Set the outer container style
+  const containerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    marginTop: '3em'
+  };
+
+  // Set the inner div style
+  const innerStyle = {
+    display: 'flex',
+    justifyContent: 'space-between',
+    width: fullWidth ? '100%' : definedWidth
+  };
+
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', width: '100%', marginTop:"3em" }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', width: '175px' }}>
+    <div style={containerStyle}>
+      <div style={innerStyle}>
         <a href={twitterUrl} target="_blank" rel="noopener noreferrer">
           <FaTwitter size="24" color="#343434" />
         </a>

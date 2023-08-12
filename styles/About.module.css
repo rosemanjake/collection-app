@@ -1,0 +1,50 @@
+.outerContainer{
+  min-height:90vh;
+  width:100%;
+  display:flex;
+  align-content: center;
+}
+
+.container{
+  max-width: var(--mainColumn);
+  background:transparent;
+  margin:auto;
+  color:var(--darkText);
+  padding-top:110px;
+  padding-bottom:75px;
+}
+
+.background{
+  height:100vh;
+  width:100vw;
+  position:fixed;
+  z-index:-1;
+  background: linear-gradient(to top, var(--darkishred) -50%, var(--dark) 75%);
+}
+
+.title{
+  font-size:1.5em;
+  margin:auto;
+  margin-bottom:1.5em;
+  color: var(--light);
+  max-width:675px;
+ 
+}
+
+.textContainer{
+  color:var(--light);
+  margin:auto;
+  max-width:675px;
+}
+
+.para{
+  margin-bottom:1em;
+}
+
+.buttonContainer{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1em;
+}

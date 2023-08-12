@@ -1,4 +1,8 @@
 
+.carouselContainer{
+  height:100%;
+}
+
 .carousel{
   display:flex;
   flex-direction: column;
@@ -13,10 +17,6 @@
     display: none;
 }
 
-.carouselContainer{
-  height:100%;
-}
-
 @media (min-width: 800px) { 
   .carousel{
     flex-direction: row;
@@ -26,5 +26,5 @@
 }
 
 @media (min-width: 1280px) { 
-
+  
 }

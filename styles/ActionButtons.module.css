@@ -3,7 +3,7 @@
   flex-direction: row;
   width:var(--homeColumn);
   margin:auto;
-  margin-top:20px;
+  padding-top:20px;
 }
 
 .button{

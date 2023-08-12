@@ -1,11 +1,12 @@
 import React from 'react'
 import styles from '../styles/ActionButtons.module.css';
+import ShareButtons from './ShareButtons';
 
 export default function ActionButtons(props){
   return(
     <div className={styles.container}>
       <ActionButton text={"Purchase e-book"}/>
-      <ActionButton text={"Listen to audiobook"}/>
+      <ShareButtons url={props.url} title={"By the Fire"} fullWidth={false}/>
     </div>
   )
 }

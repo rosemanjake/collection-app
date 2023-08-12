@@ -29,7 +29,7 @@ export default function GoldRush(props){
       <TextContainer text={text2} containerIndex={2}/>
       <BasicImage image={"/images/fire.png"}/>
       <TextContainer text={text3} containerIndex={3}/>
-      <ShareButtons url={url} title={title}/>
+      <ShareButtons url={url} title={title} fullWidth={true}/>
     </Story>
     <Footer/>
     </>

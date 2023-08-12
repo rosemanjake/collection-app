@@ -13,6 +13,8 @@
   box-shadow: rgba(0, 0, 0, 0.2) 0px 15px 40px 0px;
   transition:200ms;
   max-width:90vw;
+  max-height:575px;
+  min-height:550px;
 }
 
 .carouselCard a {
@@ -85,6 +87,14 @@
     margin-right:20px;
     margin-top:0px;
     min-width:500px;
+    max-height:70vh;
   }
-  
 }
+
+
+@media (min-height: 1280px) { 
+  .carouselCard{
+    width:18vw;
+  }
+}
+

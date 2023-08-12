@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import CarouselCard from './carousel-card';
 import styles from '../styles/Carousel.module.css';
+import ScrollOnHover from './ScrollOnHover';
 
 export default function Carousel(props){
   const carouselRef = useRef(null);
@@ -11,7 +12,7 @@ export default function Carousel(props){
       if (carouselRef.current) {
         const maxScroll = carouselRef.current.scrollWidth - carouselRef.current.clientWidth;
         const percentageScrolled = (carouselRef.current.scrollLeft / maxScroll) * 100;
-        setScrollPosition(percentageScrolled);
+        setScrollPosition(Math.ceil(percentageScrolled));
       }
     };
 
@@ -29,7 +30,6 @@ export default function Carousel(props){
   useEffect(() => {
     // Function to handle scrolling
     const handleScroll = (e) => {
-      console.log(carouselRef.current.scrollLeft += e.deltaY)
       if (!carouselRef.current) return
       // Prevent the default scrolling behavior
       e.preventDefault();
@@ -66,15 +66,22 @@ export default function Carousel(props){
   ];
 
   return(
-    <div className={styles.carouselContainer}>
-      <div className={styles.carousel} ref={carouselRef}>
-      {cardData.map((item) => (
-        <div key={item.id}>
-          <CarouselCard data={item}/>
+    <>
+      {scrollPosition < 100 &&
+        <ScrollOnHover targetRef={carouselRef} reverse={false}/>
+      }
+      {scrollPosition > 0 &&
+        <ScrollOnHover targetRef={carouselRef} reverse={true}/>
+      }
+      <div className={styles.carouselContainer}>
+        <div className={styles.carousel} ref={carouselRef}>
+        {cardData.map((item) => (
+            <CarouselCard key={item.id} data={item}/>
+        ))}
+        <b style={{position:"fixed", bottom: 0}}>{scrollPosition}</b>
         </div>
-      ))}
-      <b style={{position:"fixed", bottom: 0}}>{scrollPosition}</b>
-      </div>
-    </div>
+      </div>  
+    </>
+    
   )
 }

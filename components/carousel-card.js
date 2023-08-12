@@ -27,7 +27,8 @@ export default function CarouselCard(props){
       initial={{ y: "50%", opacity: 0 }}
       animate={{ y: "0%", opacity: 1 }}
       transition={{ duration: 0.2, ease: "easeInOut", delay: props.data.id * 0.08 }}
-      className={styles.carouselCard} ref={cardRef}>
+      className={styles.carouselCard} 
+      ref={cardRef}>
       <Link href={props.data.link}>
       {isHovered &&
         <motion.div

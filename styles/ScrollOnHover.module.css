@@ -1,0 +1,39 @@
+.container{
+  cursor: pointer;
+  height: 60px;
+  width: 60px;
+  background-color: var(--dark);
+  position:absolute;
+  top:50%;
+  z-index:50;
+  display:none;
+  border-radius:50px;
+  margin:1em;
+  justify-content: center;
+  align-items: center;
+  color:var(--light)
+
+}
+
+.container:hover{
+  border: 5px solid var(--red);
+  color:var(--red)
+}
+
+
+
+.backwards{
+  left:0;
+  right:auto;
+}
+
+.forwards{
+  right:0;
+  left:auto;
+}
+
+@media (min-width: 800px) { 
+  .container, .backwards, .forwards{
+    display:flex;
+  }
+}
