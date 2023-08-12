@@ -39,7 +39,7 @@ export default function BasicImage(props) {
       animate={controls}
       variants={variants}
       transition={{
-        duration: 0.45,
+        duration: 0.2,
         ease: 'easeOut',
       }}>
       <div className={styles.placeholder} />

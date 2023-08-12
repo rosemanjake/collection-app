@@ -3,9 +3,11 @@ import {useState} from 'react';
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import ShareDialog from './share-dialog';
 
 export default function Header(props) {
   const [displaySidebar, setDisplaySidebar] = useState(false)
+  const [displayShareDialog, setDisplayShareDialog] = useState(false)
 
   return (
       <div key={"header"} className={props.home && !props.isMobile ? styles.homeContainer : styles.container}>
@@ -26,23 +28,32 @@ export default function Header(props) {
               ease: 'easeInOut'
             }}
             >
-            <div className={styles.innerIconContainer}>
-              <img onClick={() => {props.setShowShare(!props.showShare)}} src={"/images/shareicon.svg"}/>
-            </div>
-            <div className={styles.innerIconContainer}>
-              <img onClick={() => {props.setDarkMode(!props.darkMode)}} src={"/images/darkmode.svg"}/>
-            </div>
-            <div className={styles.innerIconContainer}>
-              <img onClick={() => {setDisplaySidebar(!displaySidebar)}} src={"/images/hamburger.svg"}/>
+            {!props.home &&
+            <>
+              <div className={styles.innerIconContainer} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
+                <HeaderIcon type={"share"}/>
+              </div>
+              <div className={styles.innerIconContainer} onClick={() => {props.setDarkMode(!props.darkMode)}}>
+                <HeaderIcon type={"dark"}/>
+              </div>
+            </>
+            }
+            <div className={styles.innerIconContainer} onClick={() => {setDisplaySidebar(!displaySidebar)}}>
+              <HeaderIcon type={"hamburger"}/>
             </div>
             </motion.div>
           }
           </AnimatePresence>
           <AnimatePresence>
-              {displaySidebar &&
-                <Sidebar setDisplaySidebar={setDisplaySidebar}/>
-              }
-            </AnimatePresence>
+            {displaySidebar &&
+              <Sidebar setDisplaySidebar={setDisplaySidebar}/>
+            }
+          </AnimatePresence>
+          <AnimatePresence>
+            {displayShareDialog &&
+              <ShareDialog setDisplayShareDialog={setDisplayShareDialog}/>
+            }
+          </AnimatePresence>
         </div>
       </div>
   )
@@ -141,6 +152,7 @@ function Sidebar(props){
           <SideBarLink innerText={"About"} delay={0.07} url={"/about"}/>
           <SideBarLink innerText={"Book"} delay={0.14} url={"/"}/>
         </div>
+        <div className={styles.copyright}>© Jake Roseman, 2023</div>
       </motion.div>
   )
 }
@@ -202,3 +214,55 @@ function SideBarLink(props) {
     </div>
   )
 }
+
+const HeaderIcon = ({ url, type, func }) => {
+  const [color, setColor] = useState("#F9EFDA");
+
+  const handleMouseEnter = () => {
+    setColor('#F9350B');
+  };
+
+  const handleMouseLeave = () => {
+    setColor("#F9EFDA");
+  };
+
+  return (
+    <div onClick={func} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+      {type == "share" &&
+        <ShareIconSvg color={color} />
+      }
+      {type == "dark" &&
+        <DarkModeIconSvg color={color} />
+      }
+      {type == "hamburger" &&
+        <HamburgerIconSvg color={color} />
+      }
+    </div>
+  );
+};
+
+const ShareIconSvg = ({ color = "#F9EFDA" }) => (
+  <svg width="21" height="23" viewBox="0 0 21 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="16.9783" cy="4.02128" r="4.02128" fill={color}/>
+    <circle cx="16.9783" cy="18.7654" r="4.02128" fill={color}/>
+    <circle cx="4.02128" cy="12.0633" r="4.02128" fill={color}/>
+    <line x1="17.7156" y1="3.95323" x2="4.75816" y2="11.549" stroke={color} stroke-width="3"/>
+    <line x1="16.2617" y1="18.7959" x2="3.32778" y2="12.0532" stroke={color} stroke-width="3"/>
+  </svg>
+);
+
+const DarkModeIconSvg = ({ color = "#F9EFDA" }) => (
+  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="10" cy="10" r="9.5" stroke={color}/>
+    <path d="M10 9.5C10 15.0228 10 9.5 10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C10 5.5 10 3.97715 10 9.5Z" fill={color}/>
+  </svg>
+);
+
+const HamburgerIconSvg = ({ color = "#F9EFDA" }) => (
+  <svg width="20" height="17" viewBox="0 0 20 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line y1="1.5" x2="20" y2="1.5" stroke={color} stroke-width="3"/>
+    <line y1="8.5" x2="20" y2="8.5" stroke={color} stroke-width="3"/>
+    <line y1="15.5" x2="20" y2="15.5" stroke={color} stroke-width="3"/>
+  </svg>
+);
+

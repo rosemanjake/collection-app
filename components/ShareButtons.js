@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaTwitter, FaFacebookF, FaInstagram } from 'react-icons/fa';
 import styles from '../styles/ShareButtons.module.css';
+import { useRouter } from 'next/router';
 
-const ShareButtons = ({ url, title, fullWidth = false, light = false }) => {
-  const twitterUrl = `https://twitter.com/intent/tweet?text=${title}&url=${url}`;
-  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+const ShareButtons = ({ title, fullWidth = false, light = false }) => {
+  const [fullURL, setFullURL] = useState('');
+
+  useEffect(() => {
+    setFullURL(window.location.href);
+  }, []);
+
+  const twitterUrl = `https://twitter.com/intent/tweet?text=Check%20it%20out!&url=${fullURL}`;
+  const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${fullURL}`;
   const instagramUrl = `https://www.instagram.com`;
 
   return (

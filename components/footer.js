@@ -9,9 +9,9 @@ export default function Footer(){
         <div className={styles.title}>By the Fire</div>
         <div className={styles.content}>
           <div className={styles.links}>
+            <Link href={"/"}>Home</Link>
             <Link href={"/about"}>About</Link>
-            <Link href={"/about"}>Contact</Link>
-            <Link href={"/about"}>E-book</Link>
+            <Link href={"/about"}>Book</Link>
           </div>
           <div>© Jake Roseman, 2023</div>
         </div>

@@ -154,6 +154,18 @@
   display:flex;
   align-items: center;
   justify-content: center;
+  margin-left:1em;
+}
+
+.innerIconContainer svg{
+  cursor:pointer;
+  height: 23px;
+  width: 23px;
+  transition:200ms;
+}
+
+.innerIconContainer svg:hover .icon {
+  fill: #F9350B;
 }
 
 .iconContainer{
@@ -162,4 +174,15 @@
   width:100px;
   justify-content: space-between;
   height:100%;
+}
+
+.copyright{
+  width:100%;
+  text-align:center;
+  position:fixed;
+  bottom: 0;
+  left:0;
+  opacity:.4;
+  font-size: .9em;
+  margin-bottom:.45em;
 }

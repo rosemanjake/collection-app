@@ -43,13 +43,6 @@ export default function Home() {
         <ActionButtons url={"foobar.com"} light={true}/>
       </div>
     </div>
-    <HomeFooter/>
     </>
-  )
-}
-
-function HomeFooter(){
-  return(
-    <div className={styles.footer}>© Jake Roseman, 2023</div>
   )
 }
