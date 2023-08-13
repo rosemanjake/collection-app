@@ -59,9 +59,9 @@ export default function Carousel(props){
 
   const cardData = [
     { id: 1, image: "/images/titles/goldrush.png", title: 'Gold Rush', subtitle: "A man prospects for gold in colonial Victoria.", time:"5 minute read", link: "/gold-rush"},
-    { id: 2, image: "/images/titles/shotgun.png", title: 'Shotgun', subtitle: "A father avenges his son's death.", time:"5 minute read", link: "/shotgun"},
+    { id: 2, image: "/images/titles/parasocial.png", title: 'Parasocial', subtitle: "A fan is convinced he has a connection with his idol.", time:"5 minute read", link: "/parasocial"},
     { id: 3, image: "/images/titles/thebear.png", title: 'The Bear', subtitle: "A young man treks through the Wyoming backcountry.", time:"5 minute read", link: "/the-bear"},
-    { id: 4, image: "/images/titles/parasocial.png", title: 'Parasocial', subtitle: "A fan is convinced he has a connection with his idol.", time:"5 minute read", link: "/parasocial"},
+    { id: 4, image: "/images/titles/shotgun.png", title: 'Shotgun', subtitle: "A father avenges his son's death.", time:"5 minute read", link: "/shotgun"},
     { id: 5, image: "/images/titles/hypochondria.png", title: 'Hypochondria', subtitle: "A young man is sure something is wrong with him.", time:"5 minute read", link: "/hypochondria"},
     { id: 6, image: "/images/titles/pigeons.png", title: 'Pigeons', subtitle: "A horde of pigeons settles on a London street.", time:"5 minute read", link: "/pigeons"},
   ];

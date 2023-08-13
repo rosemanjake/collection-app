@@ -12,9 +12,9 @@ export default function StoryTitle(props){
       await ballControls.start({ scale: 1.5, transition: { duration: 0.1, ease: 'linear' }});
       
       await Promise.all([
-        ballControls.start({ scale: 1, transition: { duration: 0.4, ease: 'easeInOut' }}),
-        lineControls.start({ width: '100%', transition: { duration: .4, ease: 'easeInOut' }}),
-        titleControls.start({ y:'0%', transition: { duration: .4, ease: 'easeInOut' }})
+        ballControls.start({ scale: 1, transition: { duration: .5, ease: 'easeInOut' }}),
+        lineControls.start({ width: '100%', transition: { duration: .5, ease: 'easeInOut' }}),
+        titleControls.start({ y:'0%', transition: { duration: .5, ease: 'easeInOut' }})
       ]);
     }
     sequence();
