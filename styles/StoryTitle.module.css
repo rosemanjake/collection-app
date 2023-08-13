@@ -4,21 +4,42 @@
   width:100%;
   text-align:center;
   margin-top:2em;
-  margin-bottom:1em;
+}
+
+.titleContainer, .titleInnerContainer{
+  overflow:hidden;
 }
 
 .darkTitle{
   color:var(--light);
 }
 
-.line{
-  height:6px;
-  background-color:transparent;
+.lineContainer, .lineContainerDark{
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3.5em;
+  margin-top: 1.25em;
+}
+
+.ball, .ballDark{
+  width:20px;
+  height:20px;
+  background-color: var(--dark);
+  position:absolute;
+  border-radius: 20px;
+}
+
+.line, .lineDark{
+  height:5px;
+  background: linear-gradient(to right, var(--darkishred), var(--dark), var(--darkishred));
   width:100%;
   margin:auto;
-  margin-top: 1em;
-  margin-bottom: 3em;
-  border-top:2px solid var(--dark);
-  border-bottom:2px solid var(--dark);
   max-width: 675px;
+}
+
+.ballDark, .lineDark{
+  background:none;
+  background-color: var(--light);
 }

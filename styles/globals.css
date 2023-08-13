@@ -40,6 +40,7 @@ body {
 
   --homeColumn: 66vw;
   --mainColumn: 95vw;
+  --maxTextWidth: 675px;
 }   
 
 @media (min-width: 800px) { 

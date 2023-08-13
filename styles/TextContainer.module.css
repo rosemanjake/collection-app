@@ -5,6 +5,6 @@
 .text{
   margin:auto;
   margin-top:1em;
-  max-width: 675px;
+  max-width: var(--maxTextWidth);
   font-family: 'Libre Baskerville', serif;
 }

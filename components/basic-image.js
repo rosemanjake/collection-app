@@ -7,7 +7,7 @@ export default function BasicImage(props) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const { ref, inView, entry } = useInView({
     triggerOnce: true,
-    threshold: 0.3, // change this value to determine how much of the element needs to be in view
+    threshold: 0.5, // change this value to determine how much of the element needs to be in view
     rootMargin: '20px 0px',
   });
 
@@ -27,7 +27,7 @@ export default function BasicImage(props) {
   }, [props.image]);
 
   const variants = {
-    hidden: { x: "100%", opacity: 0 },
+    hidden: { x: "10%", opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
@@ -39,7 +39,7 @@ export default function BasicImage(props) {
       animate={controls}
       variants={variants}
       transition={{
-        duration: 0.2,
+        duration: 0.45,
         ease: 'easeOut',
       }}>
       <div className={styles.placeholder} />

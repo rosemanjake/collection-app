@@ -33,8 +33,16 @@ const ShareIcon = ({ IconComponent, size, url, light }) => {
   };
 
   const handleMouseLeave = () => {
-    setColor(light ? "#F9EFDA" : "#343434");
+    resetColor()
   };
+
+  const resetColor = ()=> {
+    setColor(light ? "#F9EFDA" : "#343434");
+  }
+
+  useEffect(()=>{
+    resetColor()
+  },[light])
 
   return (
     <a href={url} target="_blank" rel="noopener noreferrer" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
