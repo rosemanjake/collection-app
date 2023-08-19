@@ -29,7 +29,9 @@ export default function CarouselCard(props){
       transition={{ duration: 0.2, ease: "easeInOut", delay: props.data.id * 0.08 }}
       className={styles.carouselCard} 
       ref={cardRef}>
-      <Link href={props.data.link}>
+      <Link 
+        style={{display:"block", position: "relative", height:"100%"}}
+        href={props.data.link}>
       {isHovered &&
         <motion.div
           initial={{ opacity: 0 }}
@@ -39,16 +41,21 @@ export default function CarouselCard(props){
         <div className={styles.border}/>
         </motion.div>
       }
-      <div className={styles.imageContainer}>
-        <img className={styles.image} src={props.data.image}/></div>
+        
       <div className={styles.titleContainer}>
-        <h2 className={styles.title}>{props.data.title}</h2>
-        <h3 className={styles.subTitle}>{props.data.subtitle}</h3>
+        <div className={styles.image} style={{backgroundImage: `url(${props.data.image})`}}/>
+        <div className={styles.textContainer}>
+          <div>
+            <h2 className={styles.title}>{props.data.title}</h2>
+            <h3 className={styles.subTitle}>{props.data.subtitle}</h3>
+          </div>
+          <div>{props.data.time}</div>
+        </div>
       </div>
-      <div className={styles.metadataContainer}>
-        <div>{props.data.time}</div>
-      </div>
+      
       </Link>
     </motion.div>
   )
 }
+
+//  <img className={styles.image} src={props.data.image}/>

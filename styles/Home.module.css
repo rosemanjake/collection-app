@@ -9,6 +9,10 @@
 
 .container{
   width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .background{
@@ -44,12 +48,13 @@
 }
 
 @media (min-width: 800px) { 
-  
-  
+  .container{
+    height:90vh;
+  }
 }
 
 @media (min-width: 1280px) { 
-  .titleContainer{
-    
+  .container{
+    height:90vh;
   }
 }

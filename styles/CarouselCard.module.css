@@ -14,7 +14,7 @@
   transition:200ms;
   max-width:90vw;
   max-height:575px;
-  min-height:550px;
+  overflow:hidden;
 }
 
 .carouselCard a {
@@ -44,19 +44,32 @@
 }
 
 .titleContainer{
-  padding:25px;
-  padding-bottom:0;
+  display:flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height:100%;
 }
 
 .title{
   font-size:2em;
   font-weight:normal;
   font-style: normal;
+  margin-top:initial;
+  margin-bottom:initial;
 }
 
 .subTitle{
   font-style: normal;
   font-weight:normal;
+  font-size:1em;
+}
+
+.textContainer{
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding:20px;
 }
 
 .imageContainer{
@@ -66,35 +79,55 @@
 }
 
 .image{
+  height:100%;
   width:100%;
-  border-top-left-radius: 10px; 
-  border-top-right-radius: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .metadataContainer{
   padding:25px;
   width:100%;
   padding-top:20px;
-  position:absolute;
-  Bottom:0;
 }
 
 @media (min-width: 800px) { 
   .carouselCard{
-    width:25vw;
-    height:50vh;
+    height:57vh;
+    min-width:70vw;
     margin-left:20px;
     margin-right:20px;
     margin-top:0px;
-    min-width:500px;
     max-height:70vh;
   }
 }
 
 
-@media (min-height: 1280px) { 
+@media (min-width: 1280px) { 
   .carouselCard{
-    width:18vw;
+    height:60vh;
+    min-width:60vw
   }
 }
+
+@media (min-width: 1400px) { 
+  .carouselCard{
+    height:50vh;
+    min-width:35vw;
+  }
+
+  .title{
+    font-size:2em;
+    font-weight:normal;
+    font-style: normal;
+    margin-top:1em;
+    margin-bottom:1em;
+  }
+  
+  .subTitle{
+    font-size:1.2em
+  }  
+}
+
 

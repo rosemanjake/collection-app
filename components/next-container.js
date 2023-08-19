@@ -53,6 +53,11 @@ function NextStory({ currentStoryIndex }){
         setNextImage("/images/titles/pigeons.png");
         setNextUrl("/pigeons")
         break;
+      case 5:
+        setNextTitle("Gold Rush");
+        setNextImage("/images/titles/goldrush.png");
+        setNextUrl("/gold-rush")
+        break;
     }
   }, [currentStoryIndex]); // Adding currentStoryIndex as a dependency
 

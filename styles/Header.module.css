@@ -49,13 +49,13 @@
 }
 
 .title{
-  font-size:3em;
+  font-size:2em;
   margin-bottom:20px;
   display:block;
 }
 
 .subtitle{
-  font-size:1.5em;
+  font-size:1em;
 }
 
 .circle {
@@ -96,11 +96,22 @@
 }
 
 @media (min-width: 800px) {
-  .sidebar{
-    
-    width:400px;
+  .sidebar{   
+    width:300px;
   }
 }
+
+@media (min-width: 1500px) {
+  .title{
+    font-size:3em;
+  }
+  
+  .subtitle{
+    font-size:1.5em;
+  }
+}
+
+
 
 .sidebarLinks{
   width:100%;
@@ -154,7 +165,6 @@
   display:flex;
   align-items: center;
   justify-content: center;
-  margin-left:1em;
 }
 
 .innerIconContainer svg{
@@ -171,7 +181,6 @@
 .iconContainer{
   display:flex;
   flex-direction: row;
-  width:100px;
   justify-content: space-between;
   height:100%;
 }
