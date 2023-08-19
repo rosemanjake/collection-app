@@ -4,6 +4,7 @@
   background:var(--offWhiteBackground);
   position: relative;
   display:block;
+  
 }
 
 .container, .darkContainer{
@@ -17,6 +18,7 @@
   padding-bottom:50px;
   position: relative;
   display:block;
+  min-height:120vh;
 }
 
 .darkOuterContainer, .darkContainer{
