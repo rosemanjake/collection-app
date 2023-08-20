@@ -1,31 +1,14 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import Carousel from '../components/carousel.js'
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import ActionButtons from '../components/ActionButtons';
 import Header from '../components/header';
+import { DarkModeContext } from '../context/DarkModeProvider';
 
 export default function Home() {
   // State variable to track whether the window is less than 800px wide
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Effect hook to handle window resizing
-  useEffect(() => {
-    // Function to update isMobile state based on window width
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 800);
-    };
-
-    handleResize()
-
-    // Add the event listener to the window
-    window.addEventListener('resize', handleResize);
-
-    // Return a cleanup function to remove the event listener
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []); // Empty dependency array ensures the effect runs only once
+  const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
 
   return (
     <>
@@ -37,7 +20,7 @@ export default function Home() {
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <Header home={true} isMobile={isMobile}/>
+        <Header home={true} onlyHamburger={true} isMobile={isMobile} setIsMobile={setIsMobile}/>
         <Carousel isMobile={isMobile}/>
         <ActionButtons url={"foobar.com"} light={true}/>
       </div>

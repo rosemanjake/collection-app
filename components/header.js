@@ -1,18 +1,20 @@
 import styles from '../styles/Header.module.css';
-import {useState} from 'react';
+import {useState, useContext, useEffect} from 'react';
 import { motion, AnimatePresence } from "framer-motion"
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ShareDialog from './share-dialog';
+import { DarkModeContext } from '../context/DarkModeProvider';
 
-export default function Header(props) {
+export default function Header({home, onlyHamburger = false}) {
   const [displaySidebar, setDisplaySidebar] = useState(false)
   const [displayShareDialog, setDisplayShareDialog] = useState(false)
+  const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
 
   return (
-      <div key={"header"} className={props.home && !props.isMobile ? styles.homeContainer : styles.container}>
-        <div className={props.home && !props.isMobile ? styles.homeInnerContainer : styles.innerContainer}> 
-          {props.home && !props.isMobile
+      <div key={"header"} className={home && !isMobile ? styles.homeContainer : styles.container}>
+        <div className={home && !isMobile ? styles.homeInnerContainer : styles.innerContainer}> 
+          {home && !isMobile
             ? <HomeTitle/>
             : <Title/>
           }
@@ -27,13 +29,14 @@ export default function Header(props) {
               duration: 0.1,
               ease: 'easeInOut'
             }}
+            style={onlyHamburger ? {justifyContent: "flex-end"} : {}}
             >
-            {!props.home &&
+            {!onlyHamburger &&
             <>
               <div className={styles.innerIconContainer} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
                 <HeaderIcon type={"share"}/>
               </div>
-              <div className={styles.innerIconContainer} onClick={() => {props.setDarkMode(!props.darkMode)}}>
+              <div className={styles.innerIconContainer} onClick={() => {setIsDarkMode(!isDarkMode)}}>
                 <HeaderIcon type={"dark"}/>
               </div>
             </>
@@ -146,7 +149,7 @@ function Sidebar(props){
         ease: 'easeInOut'
       }}
       className={styles.sidebar}>
-        <Cross key={"cross"}width={"45px"} height={"45px"} {...props}/>
+        <Cross key={"cross"} width={"45px"} height={"45px"} {...props}/>
         <div className={styles.sidebarLinks}>
           <SideBarLink innerText={"Home"} delay={0.00} url={"/"}/>
           <SideBarLink innerText={"About"} delay={0.07} url={"/about"}/>

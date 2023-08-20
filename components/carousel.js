@@ -75,7 +75,6 @@ export default function Carousel(props){
           {cardData.map((item) => (
             <CarouselCard key={item.id} data={item} />
           ))}
-          <b style={{ position: "fixed", bottom: 0 }}>{scrollPosition}</b>
         </div>
       </div>
     </>

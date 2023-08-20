@@ -4,22 +4,31 @@ import ActionButtons from './ActionButtons';
 import ShareButtons from './ShareButtons';
 import Link from 'next/link';
 
-export default function NextContainer(props){
-  return(
-    <>
-    <div className={styles.line}/>
-    <div className={styles.container}>
-      <div className={styles.innerContainerLeft}>
-        <div className={styles.goodByeText}>{"Share this story on your favourite social network:"}</div>
-        <ShareButtons fullWidth={true} light={props.darkMode}/>
+import { motion } from 'framer-motion';
+
+export default function NextContainer(props) {
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 1, duration: 1 }}
+    >
+      <div className={styles.line} />
+      <div className={styles.container}>
+        <div className={styles.innerContainerLeft}>
+          <div className={styles.goodByeText}>
+            {"Share this story on your favourite social network:"}
+          </div>
+          <ShareButtons fullWidth={true} light={props.darkMode} />
+        </div>
+        <div className={styles.innerContainerRight}>
+          <NextStory currentStoryIndex={props.currentStoryIndex} />
+        </div>
       </div>
-      <div className={styles.innerContainerRight}>
-        <NextStory currentStoryIndex={props.currentStoryIndex}/>
-      </div>
-    </div>
-  </>
-  ) 
+    </motion.div>
+  );
 }
+
 
 function NextStory({ currentStoryIndex }){
   const [nextTitle, setNextTitle] = useState("")

@@ -11,21 +11,23 @@
   display:none;
 }
 
-.mobileImageContainer{
-  height:60vh;
-  width:100%;
+.mobileImageContainer {
+  height: 60vh;
+  width: 100%;
   margin-top: 2em;
   margin-bottom: 2em;
-  border-radius:10px;
+  border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 30px 0px;
+  overflow: hidden;
 }
 
-.mobileImage{
-  height:100%;
-  width:100%;
+.mobileImage {
+  height: 100%;
+  width: 100%;
   background-position: center;
   background-size: cover;
-  border-radius:10px;
+  border-radius: 10px;
+  background-attachment: fixed; /* This creates the parallax effect */
 }
 
 .placeholder {

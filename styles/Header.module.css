@@ -97,7 +97,7 @@
 
 @media (min-width: 800px) {
   .sidebar{   
-    width:300px;
+    width:400px;
   }
 }
 
@@ -183,6 +183,7 @@
   flex-direction: row;
   justify-content: space-between;
   height:100%;
+  width:100px;
 }
 
 .copyright{
