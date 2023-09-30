@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ShareDialog from './share-dialog';
 import { DarkModeContext } from '../context/DarkModeProvider';
+import openAmazonLink from '../utils';
 
 export default function Header({home, onlyHamburger = false}) {
   const [displaySidebar, setDisplaySidebar] = useState(false)
@@ -153,7 +154,7 @@ function Sidebar(props){
         <div className={styles.sidebarLinks}>
           <SideBarLink innerText={"Home"} delay={0.00} url={"/"}/>
           <SideBarLink innerText={"About"} delay={0.07} url={"/about"}/>
-          <SideBarLink innerText={"Book"} delay={0.14} url={"/"}/>
+          <SideBarLink innerText={"Book"} delay={0.14} onClick={()=>{openAmazonLink()}}/>
         </div>
         <div className={styles.copyright}>© Jake Roseman, 2023</div>
       </motion.div>
@@ -177,7 +178,11 @@ function SideBarLink(props) {
   }
 
   const handleClick = () => {
-    router.push(props.url); // Navigate to the home page
+    if (props.onClick !== null){
+      props.onClick()
+    }else{
+      router.push(props.url); // Navigate to the home page
+    }
   }
 
   return (

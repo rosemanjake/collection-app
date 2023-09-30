@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from '../styles/Footer.module.css';
 import Link from 'next/link';
+import openAmazonLink from '../utils';
 
 export default function Footer(){
   return(
@@ -11,7 +12,7 @@ export default function Footer(){
           <div className={styles.links}>
             <Link href={"/"}>Home</Link>
             <Link href={"/about"}>About</Link>
-            <Link href={"/about"}>Book</Link>
+            <div onClick={()=>{openAmazonLink()}}>Book</div>
           </div>
           <div>© Jake Roseman, 2023</div>
         </div>
