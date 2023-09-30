@@ -1,9 +1,10 @@
 .title, .darkTitle{
-  font-size:4em;
+  font-size:3.5em;
   margin:auto;
   width:100%;
   text-align:center;
   margin-top:2em;
+  margin-bottom:15px;
 }
 
 .titleContainer, .titleInnerContainer{
@@ -42,4 +43,10 @@
 .ballDark, .lineDark{
   background:none;
   background-color: var(--light);
+}
+
+@media (min-width: 800px) { 
+  .title, .darkTitle {
+    font-size:4em;
+  }
 }

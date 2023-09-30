@@ -5,6 +5,7 @@ import React, {useState, useEffect, useContext} from 'react'
 import ActionButtons from '../components/ActionButtons';
 import Header from '../components/header';
 import { DarkModeContext } from '../context/DarkModeProvider';
+import FloatingActionButton from '../components/FloatingActionButton';
 
 export default function Home() {
   // State variable to track whether the window is less than 800px wide
@@ -22,7 +23,9 @@ export default function Home() {
 
         <Header home={true} onlyHamburger={true} isMobile={isMobile} setIsMobile={setIsMobile}/>
         <Carousel isMobile={isMobile}/>
-        <ActionButtons url={"foobar.com"} light={true}/>
+        {isMobile && <FloatingActionButton/>}
+        {!isMobile && <ActionButtons light={true}/>}
+        
       </div>
     </div>
     </>

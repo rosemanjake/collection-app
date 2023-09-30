@@ -8,3 +8,26 @@
   max-width: var(--maxTextWidth);
   font-family: 'Libre Baskerville', serif;
 }
+
+.divider{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:2em;
+  margin-bottom:2em;
+}
+
+.dividerLine{
+  height:4px;
+  width:180px;
+  background-color: var(--dark);
+}
+
+.dividerCircle{
+  position:absolute;
+  height: 16px;
+  width:16px;
+  border-radius:20px;
+  background-color: var(--dark);
+}

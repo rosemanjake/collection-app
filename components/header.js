@@ -29,19 +29,19 @@ export default function Header({home, onlyHamburger = false}) {
               duration: 0.1,
               ease: 'easeInOut'
             }}
-            style={onlyHamburger ? {justifyContent: "flex-end"} : {}}
+            style={home ? {width: "70px"} : {}}
             >
+            <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
+              <HeaderIcon type={"share"}/>
+            </div>
             {!onlyHamburger &&
             <>
-              <div className={styles.innerIconContainer} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
-                <HeaderIcon type={"share"}/>
-              </div>
-              <div className={styles.innerIconContainer} onClick={() => {setIsDarkMode(!isDarkMode)}}>
+              <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setIsDarkMode(!isDarkMode)}}>
                 <HeaderIcon type={"dark"}/>
               </div>
             </>
             }
-            <div className={styles.innerIconContainer} onClick={() => {setDisplaySidebar(!displaySidebar)}}>
+            <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplaySidebar(!displaySidebar)}}>
               <HeaderIcon type={"hamburger"}/>
             </div>
             </motion.div>
@@ -67,7 +67,7 @@ export default function Header({home, onlyHamburger = false}) {
 function HomeTitle(){
   return(
     <div className={styles.titleContainer}>
-      <Link className={styles.title} href={"/"}>By the <span style={{color: "var(--red)"}}>Fire</span></Link>
+      <Link className={styles.title} href={"/"}>Murphy's <span style={{color: "var(--red)"}}>Run</span></Link>
       <div className={styles.subtitle}>A collection of short stories</div>
     </div>
   )
@@ -75,7 +75,7 @@ function HomeTitle(){
 
 function Title(){
   return(
-    <Link className={styles.logo} href={"/"}>By the <span style={{color: "var(--red)"}}>Fire</span></Link>
+    <Link className={styles.logo} href={"/"}>Murphy's <span style={{color: "var(--red)"}}>Run</span></Link>
   )
 }
 

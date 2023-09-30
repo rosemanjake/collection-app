@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import styles from '../styles/TextContainer.module.css';
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { useInView } from 'react-intersection-observer';
+import BasicImage from './basic-image';
 
 export default function TextContainer(props){
   const [paras, setParas] = useState([])
@@ -13,7 +14,11 @@ export default function TextContainer(props){
   return(
     <>
     {paras.map((para, i) => (
-      <Text key={`para-${props.containerIndex}-${i}`} content={para}/>
+      (para.match(/^\!\[\]\(.+\)$/))
+      ? <BasicImage image={para.match(/(?<=^\!\[\]\().+(?=\)$)/)[0]}/>
+      : (para.match(/^~~~$/))
+      ? <Divider/>
+      : <Text key={`para-${props.containerIndex}-${i}`} content={para}/>
     ))}
     </>
   )
@@ -52,5 +57,14 @@ function Text(props){
         ease: 'easeOut',
       }}>
       {props.content}</motion.div>
+  )
+}
+
+function Divider(){
+  return(
+    <div className={styles.divider}>
+      <div className={styles.dividerLine}/>
+      <div className={styles.dividerCircle}/>
+    </div>
   )
 }

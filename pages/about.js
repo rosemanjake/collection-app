@@ -11,11 +11,10 @@ export default function About(props){
     <div className={styles.outerContainer}>
       <div className={styles.container}>
         <div className={styles.title}>About</div>
-        <InfoText text={"By the Fire is a collection of short stories. It was written and built by Jake Roseman.\nThe writing provides something rare today - short fiction that focuses on the actions of a protagonist who struggles against something real.\nThe website makes the writing readily available without a paywall. It provides a reading experience that is both beautiful and engaging.\nFeel free to email roseman.jake@gmail.com, or follow @jake_roseman"}/>
+        <InfoText text={"By the Fire is a collection of short stories. It was written by Jake Roseman.\nThis website makes the writing readily available without a paywall, though you can choose to purchase the book using the button below.\nIf you would like to get in touch, you are most welcome to email roseman.jake@gmail.com, or follow @jake_roseman"}/>
         <div className={styles.buttonContainer}>
-          <ActionButtons light={true} fullWidth={true}/>
+          <ActionButtons light={true} fullWidth={true} center={true}/>
         </div>
-        <CornicePromo/>
       </div>
     </div>
     </>

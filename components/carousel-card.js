@@ -57,5 +57,3 @@ export default function CarouselCard(props){
     </motion.div>
   )
 }
-
-//  <img className={styles.image} src={props.data.image}/>

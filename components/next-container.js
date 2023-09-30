@@ -53,19 +53,24 @@ function NextStory({ currentStoryIndex }){
         setNextUrl("/shotgun")
         break;
       case 3:
-        setNextTitle("Hypochondira");
+        setNextTitle("Salamander");
         setNextImage("/images/titles/hypochondria.png");
-        setNextUrl("/hypochondria")
+        setNextUrl("/salamander")
         break;
       case 4:
+        setNextTitle("Twenty Euro");
+        setNextImage("/images/titles/twentyeuro.png");
+        setNextUrl("/twenty-euro")
+        break;
+      case 5:
         setNextTitle("Pigeons");
         setNextImage("/images/titles/pigeons.png");
         setNextUrl("/pigeons")
         break;
-      case 5:
-        setNextTitle("Gold Rush");
+      case 6:
+        setNextTitle("Murphy\'s Run");
         setNextImage("/images/titles/goldrush.png");
-        setNextUrl("/gold-rush")
+        setNextUrl("/run")
         break;
     }
   }, [currentStoryIndex]); // Adding currentStoryIndex as a dependency
