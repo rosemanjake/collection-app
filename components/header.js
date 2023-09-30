@@ -178,7 +178,7 @@ function SideBarLink(props) {
   }
 
   const handleClick = () => {
-    if (props.onClick !== null){
+    if (props.onClick){
       props.onClick()
     }else{
       router.push(props.url); // Navigate to the home page
