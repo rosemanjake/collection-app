@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../styles/ActionButtons.module.css';
 import ShareButtons from './ShareButtons';
 import { FaShoppingCart } from 'react-icons/fa'
-import openAmazonLink from '../../utils';
+import openAmazonLink from '../utils';
 
 export default function ActionButtons(props){
   return(

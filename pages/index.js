@@ -17,7 +17,7 @@ export default function Home() {
     <div className={styles.outerContainer}>
       <div className={styles.container}>
         <Head>
-          <title>By the Fire</title>
+          <title>Murphy's Run</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
