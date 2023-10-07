@@ -39,37 +39,37 @@ function NextStory({ currentStoryIndex }){
     switch (currentStoryIndex) {
       case 0:
         setNextTitle("Parasocial");
-        setNextImage("/images/titles/parasocial.png");
+        setNextImage("/images/titles/parasocial.jpg");
         setNextUrl("/parasocial")
         break;
       case 1:
         setNextTitle("The Bear");
-        setNextImage("/images/titles/thebear.png");
+        setNextImage("/images/titles/thebear.jpg");
         setNextUrl("/the-bear")
         break;
       case 2:
         setNextTitle("Shotgun");
-        setNextImage("/images/titles/shotgun.png");
+        setNextImage("/images/titles/shotgun.jpg");
         setNextUrl("/shotgun")
         break;
       case 3:
         setNextTitle("Salamander");
-        setNextImage("/images/titles/hypochondria.png");
+        setNextImage("/images/titles/hypochondria.jpg");
         setNextUrl("/salamander")
         break;
       case 4:
         setNextTitle("Twenty Euro");
-        setNextImage("/images/titles/twentyeuro.png");
+        setNextImage("/images/titles/twentyeuro.jpg");
         setNextUrl("/twenty-euro")
         break;
       case 5:
         setNextTitle("Pigeons");
-        setNextImage("/images/titles/pigeons.png");
+        setNextImage("/images/titles/pigeons.jpg");
         setNextUrl("/pigeons")
         break;
       case 6:
         setNextTitle("Murphy\'s Run");
-        setNextImage("/images/titles/goldrush.png");
+        setNextImage("/images/titles/goldrush.jpg");
         setNextUrl("/run")
         break;
     }

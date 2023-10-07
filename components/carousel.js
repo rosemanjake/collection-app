@@ -58,13 +58,13 @@ export default function Carousel(props){
   }, [props.isMobile]);
 
   const cardData = [
-    { id: 1, image: "/images/titles/goldrush.png", title: 'Murphy\'s Run', subtitle: "A man prospects for gold in colonial Victoria.", time:"14 minute read", link: "/run"},
-    { id: 2, image: "/images/titles/parasocial.png", title: 'Parasocial', subtitle: "A fan is convinced he has a connection with his idol.", time:"12 minute read", link: "/parasocial"},
-    { id: 3, image: "/images/titles/thebear.png", title: 'The Bear', subtitle: "A young man treks through the Wyoming backcountry.", time:"7 minute read", link: "/the-bear"},
-    { id: 4, image: "/images/titles/shotgun.png", title: 'Shotgun', subtitle: "A father avenges his son's death.", time:"6 minute read", link: "/shotgun"},
-    { id: 5, image: "/images/titles/hypochondria.png", title: 'Salamander', subtitle: "A young man is sure something is wrong with him.", time:"6 minute read", link: "/salamander"},
-    { id: 6, image: "/images/titles/twentyeuro.png", title: 'Twenty Euro', subtitle: "Scam artists hound a tourist in Paris.", time:"9 minute read", link: "/twenty-euro"},
-    { id: 7, image: "/images/titles/pigeons.png", title: 'Pigeons', subtitle: "A horde of pigeons settles on a London street.", time:"9 minute read", link: "/pigeons"},
+    { id: 1, image: "/images/titles/goldrush.jpg", title: 'Murphy\'s Run', subtitle: "A man prospects for gold in colonial Victoria.", time:"14 minute read", link: "/run"},
+    { id: 2, image: "/images/titles/parasocial.jpg", title: 'Parasocial', subtitle: "A fan is convinced he has a connection with his idol.", time:"12 minute read", link: "/parasocial"},
+    { id: 3, image: "/images/titles/thebear.jpg", title: 'The Bear', subtitle: "A young man treks through the Wyoming backcountry.", time:"7 minute read", link: "/the-bear"},
+    { id: 4, image: "/images/titles/shotgun.jpg", title: 'Shotgun', subtitle: "A father avenges his son's death.", time:"6 minute read", link: "/shotgun"},
+    { id: 5, image: "/images/titles/hypochondria.jpg", title: 'Salamander', subtitle: "A young man is sure something is wrong with him.", time:"6 minute read", link: "/salamander"},
+    { id: 6, image: "/images/titles/twentyeuro.jpg", title: 'Twenty Euro', subtitle: "Scam artists hound a tourist in Paris.", time:"9 minute read", link: "/twenty-euro"},
+    { id: 7, image: "/images/titles/pigeons.jpg", title: 'Pigeons', subtitle: "A horde of pigeons settles on a London street.", time:"9 minute read", link: "/pigeons"},
   ];
 
   return (
