@@ -1,11 +1,12 @@
 .container{
-
+  
 }
 
 .text{
   margin:auto;
   margin-top:1em;
-  max-width: var(--maxTextWidth);
+  width: var(--maxTextWidth);
+  max-width:95vw;
   font-family: 'Libre Baskerville', serif;
 }
 

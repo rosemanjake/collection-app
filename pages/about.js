@@ -11,7 +11,7 @@ export default function About(props){
     <div className={styles.outerContainer}>
       <div className={styles.container}>
         <div className={styles.title}>About</div>
-        <InfoText text={"By the Fire is a collection of short stories. It was written by Jake Roseman.\nThis website makes the writing readily available without a paywall, though you can choose to purchase the book using the button below.\nIf you would like to get in touch, you are most welcome to email roseman.jake@gmail.com, or follow @jake_roseman"}/>
+        <InfoText text={"Murphy's Run is a collection of short stories. It was written by Jake Roseman.\nThis website makes the writing readily available without a paywall, though you can choose to purchase the book using the button below.\nIf you would like to get in touch, you are most welcome to email roseman.jake@gmail.com, or follow @jake_roseman"}/>
         <div className={styles.buttonContainer}>
           <ActionButtons light={true} fullWidth={true} center={true}/>
         </div>
@@ -24,7 +24,7 @@ export default function About(props){
 function CornicePromo(){
   return(
     <div className={styles.corniceContainer}>
-      <InfoText text={"If you enjoyed By the Fire, be sure to check out the stories at Cornice: cornicemag.com."}/>
+      <InfoText text={"If you enjoyed Murphy's Run, be sure to check out the stories at Cornice: cornicemag.com."}/>
     </div>
   )
 }

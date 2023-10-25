@@ -49,7 +49,7 @@ export default function CarouselCard(props){
             <h2 className={styles.title}>{props.data.title}</h2>
             <h3 className={styles.subTitle}>{props.data.subtitle}</h3>
           </div>
-          <div>{props.data.time}</div>
+          <div className={styles.subTitle}>{props.data.time}</div>
         </div>
       </div>
       

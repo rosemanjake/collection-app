@@ -18,7 +18,7 @@ export default function ShareDialog({ setDisplayShareDialog }){
       <div className={styles.dialog}>
         <div className={styles.cross} onClick={() => {setDisplayShareDialog(false)}}>x</div>
         <div className={styles.innerContainer}>
-          <div className={styles.text}>Share By the Fire on your favourite social network:</div>
+          <div className={styles.text}>Share Murphy's Run on your favourite social network:</div>
           <ShareButtons fullWidth={true}/>
         </div>
       </div>
