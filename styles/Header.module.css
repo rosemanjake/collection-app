@@ -16,6 +16,7 @@
   height:auto;
   box-shadow: none;
   position: relative;
+  display:none;
 }
 
 .innerContainer, .homeInnerContainer {
@@ -98,6 +99,9 @@
 @media (min-width: 800px) {
   .sidebar{   
     width:400px;
+  }
+  .homeContainer{
+    display:flex;
   }
 }
 

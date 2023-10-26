@@ -12,54 +12,58 @@ export default function Header({home, onlyHamburger = false}) {
   const [displayShareDialog, setDisplayShareDialog] = useState(false)
   const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
 
+  if (home === undefined || home === null){
+    return(<></>)
+  }
+
   return (
-      <div key={"header"} className={home && !isMobile ? styles.homeContainer : styles.container}>
-        <div className={home && !isMobile ? styles.homeInnerContainer : styles.innerContainer}> 
-          {home && !isMobile
-            ? <HomeTitle/>
-            : <Title/>
-          }
-          <AnimatePresence>
-          {!displaySidebar &&
-            <motion.div 
-            className={styles.iconContainer}
-            initial={{ y:'10%', opacity: 0 }}
-            animate={{ y:'0%', opacity: 1 }}
-            exit={{ y:'10%', opacity: 0 }}
-            transition={{
-              duration: 0.1,
-              ease: 'easeInOut'
-            }}
-            style={home ? {width: "70px"} : {}}
-            >
-            <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
-              <HeaderIcon type={"share"}/>
+    <div key={"header"} className={home && !isMobile ? styles.homeContainer : styles.container}>
+      <div className={home && !isMobile ? styles.homeInnerContainer : styles.innerContainer}> 
+        {home && !isMobile
+          ? <HomeTitle/>
+          : <Title/>
+        }
+        <AnimatePresence>
+        {!displaySidebar &&
+          <motion.div 
+          className={styles.iconContainer}
+          initial={{ y:'10%', opacity: 0 }}
+          animate={{ y:'0%', opacity: 1 }}
+          exit={{ y:'10%', opacity: 0 }}
+          transition={{
+            duration: 0.1,
+            ease: 'easeInOut'
+          }}
+          style={home ? {width: "70px"} : {}}
+          >
+          <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
+            <HeaderIcon type={"share"}/>
+          </div>
+          {!onlyHamburger &&
+          <>
+            <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setIsDarkMode(!isDarkMode)}}>
+              <HeaderIcon type={"dark"}/>
             </div>
-            {!onlyHamburger &&
-            <>
-              <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setIsDarkMode(!isDarkMode)}}>
-                <HeaderIcon type={"dark"}/>
-              </div>
-            </>
-            }
-            <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplaySidebar(!displaySidebar)}}>
-              <HeaderIcon type={"hamburger"}/>
-            </div>
-            </motion.div>
+          </>
           }
-          </AnimatePresence>
-          <AnimatePresence>
-            {displaySidebar &&
-              <Sidebar setDisplaySidebar={setDisplaySidebar}/>
-            }
-          </AnimatePresence>
-          <AnimatePresence>
-            {displayShareDialog &&
-              <ShareDialog setDisplayShareDialog={setDisplayShareDialog}/>
-            }
-          </AnimatePresence>
-        </div>
+          <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplaySidebar(!displaySidebar)}}>
+            <HeaderIcon type={"hamburger"}/>
+          </div>
+          </motion.div>
+        }
+        </AnimatePresence>
+        <AnimatePresence>
+          {displaySidebar &&
+            <Sidebar setDisplaySidebar={setDisplaySidebar}/>
+          }
+        </AnimatePresence>
+        <AnimatePresence>
+          {displayShareDialog &&
+            <ShareDialog setDisplayShareDialog={setDisplayShareDialog}/>
+          }
+        </AnimatePresence>
       </div>
+    </div>
   )
 }
 
