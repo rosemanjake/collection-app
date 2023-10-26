@@ -178,10 +178,12 @@
   transition:200ms;
 }
 
-@media (min-width: 800px) {
-  .innerIconContainer svg:hover .icon {
-      fill: #F9350B;
-  }
+.innerIconContainer svg:hover .icon {
+  fill: var(--red);
+}
+
+.touch-device .innerIconContainer svg:hover .icon {
+  fill: var(--light); 
 }
 
 .iconContainer{
