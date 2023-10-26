@@ -5,9 +5,14 @@ export const DarkModeContext = createContext();
 export function DarkModeProvider({ children }) {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [isHoverCapable, setIsHoverCapable] = useState(false);
 
   // Effect hook to handle window resizing
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      setIsHoverCapable(window.matchMedia('(hover: hover)').matches);
+    }
+
     // Function to update isMobile state based on window width
     const handleResize = () => {
       setIsMobile(window.innerWidth < 800);
@@ -25,7 +30,7 @@ export function DarkModeProvider({ children }) {
   }, []); // Empty dependency array ensures the effect runs only once
 
   return (
-    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode, isMobile, setIsMobile }}>
+    <DarkModeContext.Provider value={{ isDarkMode, setIsDarkMode, isMobile, setIsMobile, isHoverCapable }}>
       {children}
     </DarkModeContext.Provider>
   );
