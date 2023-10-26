@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import styles from '../styles/BasicImage.module.css';
+import { DarkModeContext } from '../context/DarkModeProvider';
 
 export default function BasicImage(props) {
+  const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
   const [imageLoaded, setImageLoaded] = useState(false);
   const { ref, inView, entry } = useInView({
     triggerOnce: true,
@@ -31,40 +33,35 @@ export default function BasicImage(props) {
     visible: { x: 0, opacity: 1 },
   };
 
-  const [windowWidth, setWindowWidth] = useState(null);
+  const mobileVariants = {
+    hidden: { x: "0%", opacity: 0 },
+    visible: { x: null, opacity: 1 },
+  };
 
   useEffect(() => {
-    // Set the initial value for window width when the component is mounted
-    setWindowWidth(window.innerWidth);
+    // We'll start the animation over based on the new variant when isMobile changes
+    controls.start("hidden").then(() => {
+      controls.start("visible");
+    });
+  }, [controls, isMobile]); // Add isMobile as a dependency
 
-    const handleResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
 
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener when the component unmounts
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  if (windowWidth === null) {
+  if (window.innerWidth === null) {
     return null; // You can return a loading spinner or something similar here if you like
   }
 
   return (
     <motion.div
       ref={ref}
-      className={windowWidth < 800 ? styles.mobileImageContainer : styles.imageContainer }
+      className= {isMobile ? styles.mobileImageContainer : styles.imageContainer }
       initial="hidden"
       animate={controls}
-      variants={variants}
+      variants={isMobile ? mobileVariants : variants}
       transition={{
         duration: 0.45,
         ease: 'easeOut',
       }}>
-      {windowWidth < 800 ? (
+      {isMobile ? (
         <div className={styles.mobileImage} style={{ backgroundImage: `url(${props.image})` }} />
       ) : (
         <>

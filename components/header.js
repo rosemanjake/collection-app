@@ -228,13 +228,16 @@ function SideBarLink(props) {
 }
 
 const HeaderIcon = ({ url, type, func }) => {
+  const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
   const [color, setColor] = useState("#F9EFDA");
 
   const handleMouseEnter = () => {
+    if (isMobile) return;
     setColor('#F9350B');
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     setColor("#F9EFDA");
   };
 
