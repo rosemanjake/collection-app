@@ -7,7 +7,7 @@ import ShareDialog from './share-dialog';
 import { DarkModeContext } from '../context/DarkModeProvider';
 import openAmazonLink from '../utils';
 
-export default function Header({home, onlyHamburger = false}) {
+export default function Header({home = false, onlyHamburger = false}) {
   const [displaySidebar, setDisplaySidebar] = useState(false)
   const [displayShareDialog, setDisplayShareDialog] = useState(false)
   const { isDarkMode, setIsDarkMode, isMobile, setIsMobile } = useContext(DarkModeContext);
@@ -34,7 +34,7 @@ export default function Header({home, onlyHamburger = false}) {
             duration: 0.1,
             ease: 'easeInOut'
           }}
-          style={home ? {width: "70px"} : {}}
+          style={home || onlyHamburger ? {width: "70px"} : {}}
           >
           <div className={styles.innerIconContainer} style={home && !isMobile ? {alignItems:"flex-start"}: {alignItems:"center"}} onClick={() => {setDisplayShareDialog(!displayShareDialog)}}>
             <HeaderIcon type={"share"}/>
