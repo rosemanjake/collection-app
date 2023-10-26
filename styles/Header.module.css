@@ -178,8 +178,10 @@
   transition:200ms;
 }
 
-.innerIconContainer svg:hover .icon {
-  fill: #F9350B;
+@media (min-width: 800px) {
+  .innerIconContainer svg:hover .icon {
+      fill: #F9350B;
+  }
 }
 
 .iconContainer{
