@@ -73,7 +73,7 @@ function HomeTitle(){
   return(
     <div className={styles.titleContainer}>
       <Link className={styles.title} href={"/"}>Murphy's <span style={{color: "var(--red)"}}>Run</span></Link>
-      <div className={styles.subtitle}>A collection of short stories</div>
+      <div className={styles.subtitle}>Short stories by Jake Roseman</div>
     </div>
   )
 }
